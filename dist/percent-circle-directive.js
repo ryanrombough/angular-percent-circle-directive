@@ -13,9 +13,8 @@
 						'</div>',
 			scope: {percent : '='},
 			link: function($scope, element, attrs) {
-				$scope.setBorderImg;
-
 				$scope.curPercent = 0;
+				$scope.setBorderImg;
 				var animateTimeout;
 
 				function setBorderImg(deg) {
@@ -29,8 +28,8 @@
 
 				function animateBorderImg(fromVal, toVal) {
 					if(fromVal != toVal) {
-						$scope.curPercent = (fromVal < toVal) ? fromVal + 1 : fromVal - 1,
-							deg    = ($scope.curPercent/100) * 360;
+						$scope.curPercent = (fromVal < toVal) ? fromVal + 1 : fromVal - 1;
+						var deg = ($scope.curPercent/100) * 360;
 
 						setBorderImg(deg);
 
@@ -42,8 +41,12 @@
 				}
 
 				$scope.$watch('percent', function(newVal, oldVal) {
-					$timeout.cancel(animateTimeout);
+					if(newVal > 100) newVal = 100;
+					if(newVal < 0) newVal = 0;
+
 					var startVal = (oldVal !== $scope.curPercent) ? $scope.curPercent : oldVal;
+					
+					$timeout.cancel(animateTimeout);
 					animateBorderImg(startVal, newVal);
 				})
 			}
