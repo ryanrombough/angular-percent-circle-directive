@@ -4,6 +4,7 @@
 	pcApp.directive('percentCircle', function($timeout) {
 		return {
 			restrict: 'E',
+			replace: true,
 			template: 	'<div class="pc-container">' +
 							'<div id="pcBorder" class="pc-border" ng-style="setBorderImg">' + 
 								'<div class="pc-circle">' + 
@@ -16,6 +17,12 @@
 				$scope.curPercent = 0;
 				$scope.setBorderImg;
 				var animateTimeout;
+
+				console.log(element[0].querySelector('.pc-percent'));
+
+				// function setStyling() {
+
+				// }
 
 				function setBorderImg(deg) {
 					if(deg <= 180) {
