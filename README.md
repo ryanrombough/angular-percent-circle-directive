@@ -23,6 +23,11 @@ npm install --save angular-percent-circle-directive
 ```html
 <link rel="stylesheet" type="text/css" href="path/to/dist/percent-circle.css">
 ```
+Alternatively, if you are using Sass, you can import the provided .scss file into your library
+
+```css
+@import "path/to/angular-percent-circle-directive/dist/percent-circle";
+```
 
 ### Add Script Tag
 
