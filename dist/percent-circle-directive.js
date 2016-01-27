@@ -6,9 +6,9 @@
 			restrict: 'E',
 			replace: true,
 			template: 	'<div class="pc-container">' +
-							'<div id="pcBorder" class="pc-border" ng-style="setBorderImg">' + 
+							'<div class="pc-border" ng-style="setBorderImg">' + 
 								'<div class="pc-circle">' + 
-									'<span id="pcPercent" class="pc-percent">{{curPercent}}%</span>' +
+									'<span class="pc-percent">{{curPercent}}%</span>' +
 								'</div>' +
 							'</div>' +
 						'</div>',
