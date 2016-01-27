@@ -48,6 +48,7 @@
 				}
 
 				$scope.$watch('percent', function(newVal, oldVal) {
+					newVal = Math.round(newVal);
 					if(newVal > 100) newVal = 100;
 					if(newVal < 0) newVal = 0;
 
