@@ -68,14 +68,17 @@
 
 				// if percent changes on scope, animate the percentage arch in DOM to reflect the change
 				$scope.$watch('percent', function(newVal, oldVal) {
-					newVal = Math.round(newVal);
-					if(newVal > 100) newVal = 100;
-					if(newVal < 0) newVal = 0;
+					if(!isNaN(newVal)) {
+						newVal = Math.round(newVal);
 
-					var startVal = (oldVal !== $scope.curPercent) ? $scope.curPercent : oldVal;
-					
-					$timeout.cancel(animateTimeout);
-					animateBorderImg(startVal, newVal);
+						if(newVal > 100) newVal = 100;
+						if(newVal < 0) newVal = 0;
+
+						var startVal = (oldVal !== $scope.curPercent) ? $scope.curPercent : oldVal;
+						
+						$timeout.cancel(animateTimeout);
+						animateBorderImg(startVal, newVal);
+					}
 				});
 
 				// if colors change on scope, update DOM to reflect changes
