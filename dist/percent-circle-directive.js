@@ -12,27 +12,46 @@
 								'</div>' +
 							'</div>' +
 						'</div>',
-			scope: {percent : '='},
+			scope: {
+				percent : '=',
+				colors  : '=?'
+			},
 			link: function($scope, element, attrs) {
 				$scope.curPercent = 0;
 				$scope.setBorderImg;
-				var animateTimeout;
+				var animateTimeout,
+					colors = {};
 
-				console.log(element[0].querySelector('.pc-percent'));
+				// build colors object with either user inputs or default value
+				function buildColorObj() {
+					if(!$scope.colors) $scope.colors = {};
+					colors.center    = (!$scope.colors.center)    ? '#F5FBFC' : $scope.colors.center;
+					colors.highlight = (!$scope.colors.highlight) ? '#2BCBED' : $scope.colors.highlight;
+					colors.remaining = (!$scope.colors.remaining) ? '#C8E0E8' : $scope.colors.remaining;
+				}
 
-				// function setStyling() {
+				// Styles DOM elements with corresponding colors
+				function setColors() {
+					buildColorObj();
 
-				// }
+					element[0].querySelector('.pc-border').style.backgroundColor = colors.highlight;
+					element[0].querySelector('.pc-circle').style.backgroundColor = colors.center;
+					
+					setBorderImg($scope.curPercent);
+				}
+				setColors();
 
+				// adjusts the percentage arch based on the provided degrees
 				function setBorderImg(deg) {
 					if(deg <= 180) {
-				        $scope.setBorderImg = {'background-image' : 'linear-gradient(' + (90+deg) + 'deg, transparent 50%, #A2ECFB 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)'};
+				        $scope.setBorderImg = {'background-image' : 'linear-gradient(' + (90+deg) + 'deg, transparent 50%,' + colors.remaining + ' 50%),linear-gradient(90deg,' + colors.remaining + ' 50%, transparent 50%)'};
 				    }
 				    else {
-				        $scope.setBorderImg = {'background-image' : 'linear-gradient(' + (deg-90) + 'deg, transparent 50%, #39B4CC 50%),linear-gradient(90deg, #A2ECFB 50%, transparent 50%)'};
+				        $scope.setBorderImg = {'background-image' : 'linear-gradient(' + (deg-90) + 'deg, transparent 50%,' + colors.highlight + ' 50%),linear-gradient(90deg,' + colors.remaining + ' 50%, transparent 50%)'};
 				    }
 				}
 
+				// Loop from one value to another to animate the movement of the percentage arch in DOM
 				function animateBorderImg(fromVal, toVal) {
 					if(fromVal != toVal) {
 						$scope.curPercent = (fromVal < toVal) ? fromVal + 1 : fromVal - 1;
@@ -47,6 +66,7 @@
 					}
 				}
 
+				// if percent changes on scope, animate the percentage arch in DOM to reflect the change
 				$scope.$watch('percent', function(newVal, oldVal) {
 					newVal = Math.round(newVal);
 					if(newVal > 100) newVal = 100;
@@ -56,7 +76,12 @@
 					
 					$timeout.cancel(animateTimeout);
 					animateBorderImg(startVal, newVal);
-				})
+				});
+
+				// if colors change on scope, update DOM to reflect changes
+				$scope.$watchCollection('colors', function(newVal, oldVal) {
+					setColors();
+				});
 			}
 		};
 	});

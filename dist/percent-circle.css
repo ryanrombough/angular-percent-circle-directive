@@ -9,10 +9,6 @@
     width: 100%;
     padding-top: 100%;
     border-radius: 100%;
-    background-color: #39B4CC;
-    background-image:
-        linear-gradient(91deg, transparent 50%, #A2ECFB 50%),
-        linear-gradient(90deg, #A2ECFB 50%, transparent 50%);
 }
 
 .pc-circle {
@@ -22,7 +18,6 @@
     width: 80%;
     padding-top: 80%;
     border-radius: 100%;
-    background-color: #E6F4F7;
 }
 
 .pc-percent {
