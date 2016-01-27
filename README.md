@@ -57,7 +57,7 @@ Enter the `percent-circle` tag into your HTML where you would like the percent c
 
 ### Customize the Colors
 
-the directive takes an optional attribute called `colors`. The value should be an object with one or all of the following keys:
+The directive takes an optional attribute called `colors`. The value should be an object with one or all of the following keys:
 
 ```javascript
 {
@@ -77,3 +77,15 @@ Add the `colors` attribute to the `percent-circle` HTML tag like this:
 ```
 
 The above will change the center of the circle to be green, but continue to use the default colors for `highlight` and `remaining`.
+
+### Customize the Speed
+
+The directive takes an optional attribute called `speed`. The value should be a number representing the amount of milliseconds between each percentage increment. Default is 10.
+
+Add the `speed` attribute to the `percent-circle` HTML tag like this:
+
+```html
+<percent-circle percent="myPercentModel" speed="20"></percent-circle>
+```
+
+

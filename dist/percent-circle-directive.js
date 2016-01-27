@@ -14,9 +14,11 @@
 						'</div>',
 			scope: {
 				percent : '=',
-				colors  : '=?'
+				colors  : '=?',
+				speed   : '=?'
 			},
 			link: function($scope, element, attrs) {
+				if(!$scope.speed) $scope.speed = 10;
 				$scope.curPercent = 0;
 				$scope.setBorderImg;
 				var animateTimeout,
@@ -61,7 +63,7 @@
 
 						animateTimeout = $timeout(function() {
 							animateBorderImg($scope.curPercent, toVal);
-						}, 12);
+						}, $scope.speed);
 
 					}
 				}
