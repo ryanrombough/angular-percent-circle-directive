@@ -2,13 +2,16 @@
 <html ng-app="percentCircleDemo">
 <head>
 	<title>Percent Circle Demo</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
 	<link rel="stylesheet" type="text/css" href="../dist/percent-circle.css">
 </head>
 <body ng-controller="mainController">
-	<label>Enter New Percent</label>
-	<input type="number" ng-model="newPercent">
-	<button ng-click="changePercent(newPercent)">Change Percent</button>
-	<div style="width: 20%;margin:100px 40%;">
+	<h1>Percent Circle Example</h1>
+	<h6>Type a number between 1-100 below and click the button to change the displayed percentage.</h6>
+	<label for="percent">Enter New Percent: </label><br/><br/>
+	<input class="input-btn" type="number" id="percent" ng-model="newPercent">
+	<button class="input-btn" ng-click="changePercent(newPercent)">Change Percent</button>
+	<div class="demo-percent-container">
 		<percent-circle percent="percent"></percent-circle>
 	</div>
 	
