@@ -1,6 +1,6 @@
 # Angular Percent Circle Directive
 
-<img src="./src/img/example1.PNG" width="200px">
+<img src="https://raw.githubusercontent.com/ryanrombough/angular-percent-circle-directive/master/src/img/example1.PNG" width="200px">
 
 [AngularJS](http://angularjs.org/) directive for adding animated percent circle.
 
@@ -9,13 +9,13 @@
 ### Install via Bower or Node
 
 ```bash
-bower install --save angular-percent-circle
+bower install --save angular-percent-circle-directive
 ```
 
 or
 
 ```bash
-npm install --save angular-percent-circle
+npm install --save angular-percent-circle-directive
 ```
 
 ### Link to CSS File
@@ -63,7 +63,7 @@ the directive takes an optional attribute called `colors`. The value should be a
 ```
 
 The above customization would appear as:
-<img src="./src/img/example2.PNG" width="100px">
+<img src="https://raw.githubusercontent.com/ryanrombough/angular-percent-circle-directive/master/src/img/example2.PNG" width="100px">
 
 Add the `colors` attribute to the `percent-circle` HTML tag like this:
 
