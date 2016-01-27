@@ -1,4 +1,4 @@
-var app = angular.module('percentCircleDemo', ['percentCircle']);
+var app = angular.module('percentCircleDemo', ['percentCircle-directive']);
 
 app.controller('mainController', ['$scope', function($scope) {
 	$scope.percent = 0;

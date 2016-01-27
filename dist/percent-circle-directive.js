@@ -1,5 +1,5 @@
 (function() {
-	var pcApp = angular.module('percentCircle', []);
+	var pcApp = angular.module('percentCircle-directive', []);
 
 	pcApp.directive('percentCircle', function($timeout) {
 		return {
