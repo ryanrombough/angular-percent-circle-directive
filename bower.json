@@ -4,7 +4,7 @@
   "authors": [
     "Ryan Rombough <drrombough@gmail.com>"
   ],
-  "description": "Angular directive for adding an animated percent circle.",
+  "description": "An Angular directive for adding an animated percent circle.",
   "main": "dist/percent-circle-directive.js",
   "keywords": [
     "angular",
