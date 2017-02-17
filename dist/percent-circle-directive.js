@@ -1,7 +1,7 @@
 (function() {
 	var pcApp = angular.module('percentCircle-directive', []);
 
-	pcApp.directive('percentCircle', function($timeout) {
+	pcApp.directive('percentCircle', ['$timeout', function($timeout) {
 		return {
 			restrict: 'E',
 			replace: true,
@@ -100,7 +100,7 @@
 				});
 			}
 		};
-	});
+	}]);
 })();
 
 
